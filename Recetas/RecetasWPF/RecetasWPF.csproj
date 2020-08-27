@@ -70,6 +70,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\Componente.cs" />
+    <Compile Include="Models\IComponente.cs" />
+    <Compile Include="Models\Ingrediente.cs" />
+    <Compile Include="Models\Receta.cs" />
+    <Compile Include="Models\UnidadDeMedida.cs" />
+    <Compile Include="Models\UnidadDeMedida_Tipo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -94,6 +99,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Ejemplos\EjemplosRecetas.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

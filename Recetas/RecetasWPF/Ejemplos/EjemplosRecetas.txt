@@ -1,0 +1,26 @@
+﻿Ingredientes
+1 Leche						ml
+2 Azucar					gr
+3 Arroz						gr
+4 Azucar Impalpable			gr
+
+Recetas
+1 Dulce de Leche			gr
+2 Arroz Con Leche			gr
+3 Arroz con Leche con DDL	gr
+4 Vauquita Casera			gr
+
+
+Receta
+R1 -- I1
+   -- I2
+
+R2 -- I1
+   -- I2
+   -- I3
+
+R3 -- I1
+   -- I2
+   -- R1
+
+
