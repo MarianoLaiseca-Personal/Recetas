@@ -15,7 +15,7 @@ namespace RecetasWPF.Models
 
         public string Mostrar()
         {
-            return this.ID.ToString() + " - " + this.Descripcion;
+            return "Ingrediente: " +  this.ID.ToString() + " - " + this.Descripcion;
         }
     }
 }

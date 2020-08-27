@@ -29,7 +29,7 @@ namespace RecetasWPF.Models
         {
             string rtaMostrarReceta = "";
 
-            rtaMostrarReceta = this.ID.ToString() + " - " + this.Descripcion + Environment.NewLine;
+            rtaMostrarReceta = "Receta: " + this.ID.ToString() + " - " + this.Descripcion + Environment.NewLine;
             foreach (var c in _componentes)
             {
                 rtaMostrarReceta = rtaMostrarReceta + c.Mostrar() + Environment.NewLine;
