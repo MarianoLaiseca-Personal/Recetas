@@ -8,5 +8,6 @@ namespace RecetasWPF.Models
 {
     class Componente
     {
+
     }
 }
