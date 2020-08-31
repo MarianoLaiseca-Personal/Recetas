@@ -29,10 +29,18 @@ namespace RecetasWPF
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            using (var db = new RecetasDBContext())
+            {
+                db.TiposUnidadesDeMedida.Add(new UnidadDeMedida_Tipo { Descripcion = "Peso" });
+                db.TiposUnidadesDeMedida.Add(new UnidadDeMedida_Tipo { Descripcion = "Volumen" });
+                db.SaveChanges();
+            }
+            
             UnidadDeMedida_Tipo ut1 = new UnidadDeMedida_Tipo()
             {
                 ID = 1,
                 Descripcion = "Peso" };
+
             UnidadDeMedida_Tipo ut2 = new UnidadDeMedida_Tipo()
             {
                 ID = 2,
