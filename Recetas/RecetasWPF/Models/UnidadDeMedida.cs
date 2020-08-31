@@ -8,7 +8,7 @@ namespace RecetasWPF.Models
 {
     public class UnidadDeMedida
     {
-        public int ID { get; set; }
+        public int UnidadDeMedidaID { get; set; }
         public string Descripcion { get; set; }
         public string Abreviatura { get; set; }
         public int UnidadDeMedida_TipoID { get; set; }

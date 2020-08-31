@@ -8,7 +8,7 @@ namespace RecetasWPF.Models
 {
     public class Receta : IComponente
     {
-        public int ID { get; set; }
+        public int RecetaID { get; set; }
         public string Descripcion { get; set; }
         public int UnidadDeMedidaID { get; set; }
         public UnidadDeMedida UM_Base { get; set; }
@@ -29,7 +29,7 @@ namespace RecetasWPF.Models
         {
             string rtaMostrarReceta = "";
 
-            rtaMostrarReceta = "Receta: " + this.ID.ToString() + " - " + this.Descripcion + Environment.NewLine;
+            rtaMostrarReceta = "Receta: " + this.RecetaID.ToString() + " - " + this.Descripcion + Environment.NewLine;
             foreach (var c in _componentes)
             {
                 rtaMostrarReceta = rtaMostrarReceta + c.Mostrar() + Environment.NewLine;

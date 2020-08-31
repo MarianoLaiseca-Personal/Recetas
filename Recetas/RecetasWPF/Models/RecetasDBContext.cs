@@ -14,8 +14,9 @@ namespace RecetasWPF.Models
         {
         }
 
+        public DbSet<Objeto> Objetos { get; set; }
         public DbSet<UnidadDeMedida_Tipo> TiposUnidadesDeMedida { get; set; }
-        public DbSet<UnidadDeMedida> UnbidadesDeMedida { get; set; }
+        public DbSet<UnidadDeMedida> UnidadesDeMedida { get; set; }
         public DbSet<Ingrediente> Ingredientes { get; set; }
         public DbSet<Receta> Recetas { get; set; }
         public DbSet<Componente> Componentes { get; set; }
