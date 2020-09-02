@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace RecetasWPF.Models
 {
-    public class UnidadDeMedida_Tipo
+    public class Objeto
     {
-        public int UnidadDeMedida_TipoID { get; set; }
-        public string Descripcion { get; set; }
+        public int ObjetoID { get; set; }
+        public string Campo1 { get; set; }
     }
 }

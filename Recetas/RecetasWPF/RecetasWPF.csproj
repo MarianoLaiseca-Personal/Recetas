@@ -91,6 +91,7 @@
     <Compile Include="Models\Componente.cs" />
     <Compile Include="Models\IComponente.cs" />
     <Compile Include="Models\Ingrediente.cs" />
+    <Compile Include="Models\Objeto.cs" />
     <Compile Include="Models\Receta.cs" />
     <Compile Include="Models\RecetasDBContext.cs" />
     <Compile Include="Models\UnidadDeMedida.cs" />
