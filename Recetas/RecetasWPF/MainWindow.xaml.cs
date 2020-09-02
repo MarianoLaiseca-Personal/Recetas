@@ -125,6 +125,27 @@ namespace RecetasWPF
                 };
                 rec1.AgregarComponente(comp2);
 
+                Receta rec2 = new Receta()
+                {
+                    Descripcion = "Arroz con Leche",
+                    UnidadDeMedidaID = um1.UnidadDeMedidaID,
+                    UM_Base = um1
+                };
+
+                Receta rec3 = new Receta()
+                {
+                    Descripcion = "Arroz con Leche con Dulce de Leche",
+                    UnidadDeMedidaID = um1.UnidadDeMedidaID,
+                    UM_Base = um1
+                };
+
+                Receta rec4 = new Receta()
+                {
+                    Descripcion = "Vauquita Casera",
+                    UnidadDeMedidaID = um1.UnidadDeMedidaID,
+                    UM_Base = um1
+                };
+
                 using (var db = new RecetasDBContext())
                 {
                     db.TiposUnidadesDeMedida.Add(ut1);
@@ -171,7 +192,6 @@ namespace RecetasWPF
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-
                 throw;
             }
         }
