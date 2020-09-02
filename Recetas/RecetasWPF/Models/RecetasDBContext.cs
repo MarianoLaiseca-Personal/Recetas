@@ -20,6 +20,7 @@ namespace RecetasWPF.Models
         public DbSet<Receta> Recetas { get; set; }
         public DbSet<Componente> Componentes { get; set; }
 
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
