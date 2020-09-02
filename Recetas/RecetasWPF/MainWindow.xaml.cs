@@ -171,6 +171,7 @@ namespace RecetasWPF
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+
                 throw;
             }
         }
