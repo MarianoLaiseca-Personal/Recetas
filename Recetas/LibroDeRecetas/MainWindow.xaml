@@ -6,7 +6,9 @@
         xmlns:local="clr-namespace:LibroDeRecetas"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+    <StackPanel>
+        <Button Name="cmdPrueba1" Click="CmdPrueba1_Click">Prueba 1</Button>
+        <Button Name="cmdPrueba2" Click="CmdPrueba2_Click">Modifica UM Kilos por Kilogramos</Button>
+        <Button Name="cmdPrueba3" Click="CmdPrueba3_Click" >Ejemplo Simple</Button>
+    </StackPanel>
 </Window>

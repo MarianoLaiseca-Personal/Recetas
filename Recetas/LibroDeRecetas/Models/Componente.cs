@@ -1,14 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LibroDeRecetas.Models
 {
-    public abstract class Componente
+    public class Componente
     {
-        protected string Nombre;
+        public int ComponenteID { get; set; }
+        public Ingrediente Ingrediente { get; set; }
+        public decimal CantidadNecesaria { get; set; }
+        public UnidadDeMedida UdM { get; set; }
 
+        //Constructor
+        public Componente(Ingrediente ingrediente, decimal cantidadNecesaria, UnidadDeMedida unidadDeMedida)
+        {
+            this.Ingrediente = ingrediente;
+            this.CantidadNecesaria = cantidadNecesaria;
+            this.UdM = unidadDeMedida;
+        }
     }
 }
