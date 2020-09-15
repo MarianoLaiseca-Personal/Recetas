@@ -2,7 +2,7 @@
 
 namespace LibroDeRecetas.Models
 {
-    class IngredienteSimple : Ingrediente
+    public class IngredienteSimple : Ingrediente
     {
         public  int IngredienteSimpleID { get; set; }
 

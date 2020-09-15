@@ -1,10 +1,14 @@
 ﻿using System;
+using LiteDB;
+using LibroDeRecetas.Datos;
 
 namespace LibroDeRecetas.Models
 {
     public abstract class Ingrediente
     {
         public string Descripcion { get; set; }
+
+        [BsonRef(ContextoDB.Coleccion_UnidadesDeMedida)]
         public UnidadDeMedida UdM { get; set; }
 
         //Constructor

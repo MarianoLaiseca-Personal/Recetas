@@ -1,7 +1,7 @@
 ﻿using System.Windows;
-using System.Configuration;
 using LiteDB;
 using LibroDeRecetas.Models;
+using LibroDeRecetas.Datos;
 
 
 namespace LibroDeRecetas
@@ -97,23 +97,18 @@ namespace LibroDeRecetas
             using (var db = new LiteDatabase(_db))
             {
                 // Get a collection (or create, if doesn't exist)
-                var col = db.GetCollection<UnidadDeMedida>("UnidadDeMedida");
+                var unidadesDeMedida = db.GetCollection<UnidadDeMedida>(ContextoDB.Coleccion_UnidadesDeMedida);
 
-                UnidadDeMedida um = col.FindById(2);
+                UnidadDeMedida um = unidadesDeMedida.FindById(2);
 
                 if (um != null)
                 {
                     um.Descripcion = "Kilogramos";
-                    col.Update(um);
-
-                    var colIS = db.GetCollection<IngredienteSimple>("IngredienteSimple");
-                    IngredienteSimple pr = colIS.FindById(4);
-
-                    colIS.Update(pr);
-                }              
-
-                MessageBox.Show("Termino");
+                    unidadesDeMedida.Update(um);
+                }
             }
+
+            MessageBox.Show("Termino");
         }
 
         private void CmdPrueba3_Click(object sender, RoutedEventArgs e)
