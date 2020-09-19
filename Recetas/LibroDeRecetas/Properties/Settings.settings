@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="BaseLiteDB" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">c:\temp\LibroRecetas.db</Value>
+      <Value Profile="(Default)">c:\temp\LibroRecetas2.db</Value>
     </Setting>
   </Settings>
 </SettingsFile>

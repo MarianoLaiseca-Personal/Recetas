@@ -25,7 +25,7 @@ namespace LibroDeRecetas.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("c:\\temp\\LibroRecetas.db")]
+        [global::System.Configuration.DefaultSettingValueAttribute("c:\\temp\\LibroRecetas2.db")]
         public string BaseLiteDB {
             get {
                 return ((string)(this["BaseLiteDB"]));

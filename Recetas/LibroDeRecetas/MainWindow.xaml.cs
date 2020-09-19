@@ -41,9 +41,9 @@ namespace LibroDeRecetas
             using (var db = new LiteDatabase(_db))
             {
                 //Unidades de Medida
-                UnidadDeMedida udm_gramos = new UnidadDeMedida("Gramos", TipoUnidadDeMedida.Peso);
-                UnidadDeMedida udm_kilos = new UnidadDeMedida("Kilos", TipoUnidadDeMedida.Peso);
-                UnidadDeMedida udm_cc = new UnidadDeMedida("Centimetros Cubicos", TipoUnidadDeMedida.Volumen);
+                UnidadDeMedida udm_gramos = new UnidadDeMedida("Gramos", "GR",  TipoUnidadDeMedida.Peso, true);
+                UnidadDeMedida udm_kilos = new UnidadDeMedida("Kilos", "KG",  TipoUnidadDeMedida.Peso, true);
+                UnidadDeMedida udm_cc = new UnidadDeMedida("Centimetros Cubicos", "CC", TipoUnidadDeMedida.Volumen, true);
 
                 // Get a collection (or create, if doesn't exist)
                 var unidadesDeMedida = db.GetCollection<UnidadDeMedida>("UnidadDeMedida");
@@ -116,7 +116,7 @@ namespace LibroDeRecetas
             using (var db = new LiteDatabase(@"C:\Temp\MyData.db"))
             {
                 //Unidades de Medida
-                UnidadDeMedida udm1 = new UnidadDeMedida("udm1", TipoUnidadDeMedida.Peso);
+                UnidadDeMedida udm1 = new UnidadDeMedida("udm1", "UM1", TipoUnidadDeMedida.Peso, true);
 
                 // Get a collection (or create, if doesn't exist)
                 var unidadesDeMedida = db.GetCollection<UnidadDeMedida>("UnidadDeMedida");

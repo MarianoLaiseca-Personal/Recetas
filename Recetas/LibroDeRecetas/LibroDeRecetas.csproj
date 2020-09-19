@@ -60,6 +60,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Views\dlgUnidadDeMedida_ABM.xaml.cs">
+      <DependentUpon>dlgUnidadDeMedida_ABM.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\scrMant_UnidadesDeMedida.xaml.cs">
+      <DependentUpon>scrMant_UnidadesDeMedida.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\scrPrincipal.xaml.cs">
+      <DependentUpon>scrPrincipal.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -73,6 +82,18 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\dlgUnidadDeMedida_ABM.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\scrMant_UnidadesDeMedida.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\scrPrincipal.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\Componente.cs" />
