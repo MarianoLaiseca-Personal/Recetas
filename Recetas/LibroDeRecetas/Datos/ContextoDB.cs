@@ -28,7 +28,81 @@ namespace LibroDeRecetas.Datos
             UnidadDeMedida_CrearDefaults();
         }
 
-        #region "Unidades de Medida"
+        private static String DevolverNombreColeccion(Type T)
+        {
+            switch (T.Name)
+            {
+                case "UnidadDeMedida":
+                    return Coleccion_UnidadesDeMedida;
+                case "IngredienteSimple":
+                    return Coleccion_IngredientesSimples;
+                default:
+                    throw new Exception("La entidad " + T.Name + " no es reconocida por la aplicacion");
+            }
+        }
+
+        #region Entidades Genericas
+        public static List<T> Entidad_DevolverTodos<T>()
+        {
+            List<T> rtaLista = new List<T>();
+            using (var db = new LiteDatabase(ArchivosDeDatos))
+            {
+                var entidades = db.GetCollection<T>(DevolverNombreColeccion(typeof(T)));
+
+                foreach (var item in entidades.FindAll())
+                {
+                    rtaLista.Add(item);
+                }
+                return rtaLista;
+            }
+        }
+
+        public static bool Entidad_Insertar<T>(T entidad)
+        {
+            bool rtaResultado;
+
+            try
+            {
+                using (var db = new LiteDatabase(ArchivosDeDatos))
+                {
+                    var entidades = db.GetCollection<T>(DevolverNombreColeccion(typeof(T)));
+                    entidades.Insert(entidad);
+                    rtaResultado = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                rtaResultado = false;
+                throw ex;
+            }
+
+            return rtaResultado;
+        }
+
+        public static bool Entidad_Modificar<T>(T entidad)
+        {
+            bool rtaResultado;
+
+            try
+            {
+                using (var db = new LiteDatabase(ArchivosDeDatos))
+                {
+                    var entidades = db.GetCollection<T>(DevolverNombreColeccion(typeof(T)));
+                    entidades.Update(entidad);
+                    rtaResultado = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                rtaResultado = false;
+                throw ex;
+            }
+
+            return rtaResultado;
+        }
+        #endregion
+
+        #region Unidades de Medida
         private static void UnidadDeMedida_CrearDefaults()
         {
             using (var db = new LiteDatabase(ArchivosDeDatos))
@@ -55,6 +129,11 @@ namespace LibroDeRecetas.Datos
 
         public static List<UnidadDeMedida> UnidadDeMedida_DevolverTodas()
         {
+            return UnidadDeMedida_DevolverTodas(false);
+        }
+
+        public static List<UnidadDeMedida> UnidadDeMedida_DevolverTodas(bool SoloActivas)
+        {
             List<UnidadDeMedida> rtaLista = new List<UnidadDeMedida>();
             using (var db = new LiteDatabase(ArchivosDeDatos))
             {
@@ -62,6 +141,8 @@ namespace LibroDeRecetas.Datos
 
                 foreach (var item in unidadesDeMedida.FindAll())
                 {
+                    if (SoloActivas && !item.Activa)
+                        continue;
                     rtaLista.Add(item);
                 }
 
@@ -112,6 +193,27 @@ namespace LibroDeRecetas.Datos
 
             return rtaResultado;
         }
+
+        public static bool UnidadDeMedida_Eliminar(UnidadDeMedida udm)
+        {
+            bool rtaResultado;
+
+            try
+            {
+                udm.Activa = false;
+                UnidadDeMedida_Actualizar(udm);
+                rtaResultado = true;
+            }
+            catch (Exception ex)
+            {
+                rtaResultado = false;
+                throw ex;
+            }
+
+            return rtaResultado;
+        }
         #endregion
+
+
     }
 }

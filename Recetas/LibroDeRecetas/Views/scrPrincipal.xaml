@@ -12,7 +12,8 @@
                 <MenuItem Name="mnuSalir" Header="_Salir" Click="MnuSalir_Click" IsCheckable="False" />
             </MenuItem>
             <MenuItem Header="_Datos">
-                <MenuItem Name="mnuUnidadesDeMedida" Header="_Unidades De Medida" IsCheckable="False" Click="MnuUnidadesDeMedida_Click" />
+                <MenuItem Name="mnuIngredientesSimple" Header="Ingrediente"        IsCheckable="False" Click="MnuEntidadABM_Click" Tag="IngredienteSimple"/>
+                <MenuItem Name="mnuUnidadesDeMedida"   Header="Unidades De Medida" IsCheckable="False" Click="MnuEntidadABM_Click" Tag="UnidadDeMedida" />
             </MenuItem>
         </Menu>
     </DockPanel>

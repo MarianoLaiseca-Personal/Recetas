@@ -25,17 +25,45 @@ namespace LibroDeRecetas.Views
             Application.Current.Shutdown();
         }
 
-        private void MnuUnidadesDeMedida_Click(object sender, RoutedEventArgs e)
+        private void MnuEntidadABM_Click(object sender, RoutedEventArgs e)
         {
-            this.PresionoUnidadesDeMedida();
+            this.PresionoEntidadABM(sender);
         }
 
-        private void PresionoUnidadesDeMedida()
+        private void PresionoEntidadABM(object sender)
         {
-            scrMant_UnidadesDeMedida scr = new scrMant_UnidadesDeMedida();
+            //MessageBox.Show(sender.GetType().FullName);
+            Window scr;
+            string ent = "";
+
+            switch (sender.GetType().Name)
+            {
+                case "MenuItem":
+                    var mi = (System.Windows.Controls.MenuItem)sender;
+                    ent = mi.Tag.ToString();
+                    break;
+                default:
+                    break;
+            }
+
+            switch (ent)
+            {
+                case "UnidadDeMedida":
+                    scr = new scrMant_UnidadesDeMedida();
+                    break;
+                case "IngredienteSimple":
+                    scr = new scrMant_IngredienteSimple();
+                    break;
+                default:
+                    scr = null;
+                    break;
+            }
 
             try
             {
+                if (scr is null)
+                    throw new Exception("Hay un error para abrir la ventana");
+
                 scr.ShowDialog();
             }
             catch (Exception ex)
@@ -43,7 +71,5 @@ namespace LibroDeRecetas.Views
                 MessageBox.Show("Error: " + ex.Message);
             }
         }
-
-
     }
 }

@@ -11,10 +11,10 @@ namespace LibroDeRecetas.Views
     /// </summary>
     public partial class dlgUnidadDeMedida_ABM : Window
     {
-        private string _TipoDialogo;
+        private TiposDeDialogo _TipoDialogo;
         private UnidadDeMedida _udm;
 
-        public dlgUnidadDeMedida_ABM(string tipoDialogo, UnidadDeMedida udm)
+        public dlgUnidadDeMedida_ABM(TiposDeDialogo tipoDialogo, UnidadDeMedida udm)
         {
             InitializeComponent();
 
@@ -38,15 +38,37 @@ namespace LibroDeRecetas.Views
 
         private void CmdAceptar_Click(object sender, RoutedEventArgs e)
         {
-            _udm.Descripcion = this.txtDescripcion.Text;
-            _udm.Abreviatura = this.txtAbreviatura.Text;
-            _udm.TipoUM = (TipoUnidadDeMedida)this.cmbTipo.SelectedItem;
-            _udm.Activa = true;
-
-            if (_TipoDialogo == "Modificacion")
+            try
             {
-                ContextoDB.UnidadDeMedida_Actualizar(_udm);
+                _udm.Descripcion = this.txtDescripcion.Text;
+                _udm.Abreviatura = this.txtAbreviatura.Text;
+                _udm.TipoUM = (TipoUnidadDeMedida)this.cmbTipo.SelectedItem;
+
+                switch (_TipoDialogo)
+                {
+                    case TiposDeDialogo.Alta:
+                        _udm.Activa = true;
+                        ContextoDB.Entidad_Insertar(_udm);
+                        break;
+                    case TiposDeDialogo.Modificacion:
+                        _udm.Activa = true;
+                        ContextoDB.Entidad_Modificar(_udm);
+                        break;
+                    case TiposDeDialogo.Baja:
+                        _udm.Activa = false;
+                        ContextoDB.Entidad_Modificar(_udm);
+                        break;
+                    default:
+                        break;
+                }
+
+                this.Close();
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error en la actualización. " + ex.Message);
+            }
+            
         }
     }
 }
