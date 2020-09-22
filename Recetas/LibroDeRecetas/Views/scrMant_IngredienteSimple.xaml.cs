@@ -29,7 +29,7 @@ namespace LibroDeRecetas.Views
 
         private void ActualizarGrilla()
         {
-            var iss = ContextoDB.Entidad_DevolverTodos<IngredienteSimple>();
+            var iss = ContextoDB.IngredienteSimple_DevolverTodos();
             this.dgvDatos.ItemsSource = iss;
         }
 

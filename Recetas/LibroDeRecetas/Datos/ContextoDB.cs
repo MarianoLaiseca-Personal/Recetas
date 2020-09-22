@@ -214,6 +214,23 @@ namespace LibroDeRecetas.Datos
         }
         #endregion
 
+        #region IngredienteSimple
+        public static List<IngredienteSimple> IngredienteSimple_DevolverTodos()
+        {
+            List<IngredienteSimple> rtaLista = new List<IngredienteSimple>();
+            using (var db = new LiteDatabase(ArchivosDeDatos))
+            {
+                var iiss = db.GetCollection<IngredienteSimple>(DevolverNombreColeccion(typeof(IngredienteSimple)));
 
+
+
+                foreach (var ingsim in iiss.Include(x => x.UdM).FindAll())
+                {
+                    rtaLista.Add(ingsim);
+                }
+                return rtaLista;
+            }
+        }
+        #endregion
     }
 }

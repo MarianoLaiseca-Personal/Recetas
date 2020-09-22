@@ -11,10 +11,7 @@ namespace LibroDeRecetas.Models
         [BsonRef(ContextoDB.Coleccion_UnidadesDeMedida)]
         public UnidadDeMedida UdM { get; set; }
 
-
-
         public bool Activo { get; set; }
-
 
         //Constructor
         public Ingrediente() { }

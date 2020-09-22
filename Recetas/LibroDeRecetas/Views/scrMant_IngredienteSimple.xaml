@@ -31,7 +31,7 @@
             <DataGrid.Columns>
                 <DataGridTextColumn     Header="ID"          Binding="{Binding IngredienteSimpleID}"/>
                 <DataGridTextColumn     Header="Descripcion" Binding="{Binding Descripcion}"/>
-                <DataGridTextColumn     Header="UM"          Binding="{Binding UM_Abreviatura}"/>
+                <DataGridTextColumn     Header="UM"          Binding="{Binding UdM.Abreviatura}"/>
                 <DataGridCheckBoxColumn Header="Activo"      Binding="{Binding Activo}"/>
             </DataGrid.Columns>
         </DataGrid>
